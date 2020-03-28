@@ -1,0 +1,22 @@
+#ifndef ROADSEGMENT_H
+#define ROADSEGMENT_H
+#include <iostream>
+#include <vector>
+#include "TransportationLink.h"
+
+using namespace std;
+
+class RoadSegment : public TransportationLink {
+    
+private: 
+    vector<double> hourlySpeeds;
+    double _speed;
+
+public:
+    RoadSegment(const string &name, double speed, double distance);
+    void setHourSpeed(unsigned hour, double speed);
+    void setAllHourSpeeds(const vector<double> &);
+    unsigned computeArrivalTime(unsigned minute) const;
+
+};
+#endif
